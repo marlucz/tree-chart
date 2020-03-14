@@ -1,12 +1,18 @@
 import React from 'react';
 
+import { ThemeProvider } from 'styled-components';
 import GlobalStyle from 'GlobalStyle/GlobalStyle';
-import Button from 'components/Button/Button';
+import { variables } from 'GlobalStyle/variables';
+import Button from 'components/atoms/Button/Button';
 
 const Root = () => (
   <div>
     <GlobalStyle />
-    <Button>People</Button>
+    <ThemeProvider theme={variables}>
+      <>
+        <Button>People</Button>
+      </>
+    </ThemeProvider>
   </div>
 );
 
