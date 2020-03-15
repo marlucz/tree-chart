@@ -11,9 +11,9 @@ const Button = styled.div`
   box-shadow: 0 13px 19px 0 ${({ theme }) => theme.primaryShadowLight};
   text-align: center;
   color: #fff;
-  text-shadow: 0 2px 9px ${({ theme }) => theme.primaryShadowDark};
+  text-shadow: 2px 2px 9px ${({ theme }) => theme.black};
   font-weight: ${({ theme }) => theme.bold};
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   letter-spacing: 0.6px;
   transition: background-position 0.7s;
   cursor: pointer;

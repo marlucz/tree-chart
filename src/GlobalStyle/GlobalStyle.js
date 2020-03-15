@@ -16,6 +16,8 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         font-family: 'Montserrat', sans-serif;
         font-size: 1.6rem;
+        font-weight: ${({ theme }) => theme.bold};
+        color: ${({ theme }) => theme.black};
         line-height: 1.2;
         overflow-x: hidden;
     }
