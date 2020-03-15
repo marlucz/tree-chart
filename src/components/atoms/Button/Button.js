@@ -2,16 +2,16 @@ import styled from 'styled-components';
 
 const Button = styled.div`
   position: relative;
-  max-width: 220px;
-  padding: 18px 0;
-  border-radius: 5px;
+  max-width: 22rem;
+  padding: 1.8rem 0;
+  border-radius: 0.5rem;
   background-image: ${({ theme }) => theme.primaryGradient};
   background-position: 0 100%;
   background-size: 100% 200%;
-  box-shadow: 0 13px 19px 0 ${({ theme }) => theme.primaryShadowLight};
+  box-shadow: 0 1.3rem 1.9rem 0 ${({ theme }) => theme.primaryShadowLight};
   text-align: center;
   color: #fff;
-  text-shadow: 2px 2px 9px ${({ theme }) => theme.black};
+  text-shadow: 0.2rem 0.2rem 0.9rem ${({ theme }) => theme.black};
   font-weight: ${({ theme }) => theme.bold};
   font-size: 1.6rem;
   letter-spacing: 0.6px;
@@ -25,8 +25,8 @@ const Button = styled.div`
     bottom: 0;
     right: 0;
     content: '';
-    border-radius: 5px;
-    box-shadow: 0 20px 30px ${({ theme }) => theme.primaryShadowDark};
+    border-radius: 0.5rem;
+    box-shadow: 0 2rem 3rem ${({ theme }) => theme.primaryShadowDark};
     transition: opacity 0.7s;
     opacity: 0;
   }
