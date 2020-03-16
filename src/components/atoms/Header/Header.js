@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const Button = styled.div`
+const Header = styled.div`
   position: relative;
-  max-width: 22rem;
+  width: 22rem;
   padding: 1.8rem 0;
   border-radius: 0.5rem;
   background-image: ${({ theme }) => theme.primaryGradient};
@@ -40,4 +40,4 @@ const Button = styled.div`
   }
 `;
 
-export default Button;
+export default Header;

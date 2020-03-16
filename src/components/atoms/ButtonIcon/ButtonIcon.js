@@ -18,7 +18,14 @@ const ButtonIcon = styled.button`
     background-image: url(${({ minus }) => (minus ? minusIcon : plusIcon)});
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    background-size: 80% 80%;
+    ${({ big }) =>
+      big
+        ? css`
+            background-size: 45%;
+          `
+        : css`
+            background-size: 80%;
+          `}
     height: 100%;
     width: 100%;
     text-shadow: 0px 0.1rem 0.2rem ${({ theme }) => theme.plusShadowDark};
@@ -34,11 +41,10 @@ const ButtonIcon = styled.button`
   ${({ big }) =>
     big &&
     css`
-      width: 3rem;
-      height: 3rem;
-      box-shadow: 0 0.3rem 0.3rem ${({ theme }) => theme.plusShadowLight},
-        0 0 0 0.5rem #fff,
-        0 0.5rem 1.5rem ${({ theme }) => theme.plusShadowDark};
+      width: 5rem;
+      height: 5rem;
+      box-shadow: 0 0.5rem 0.5rem ${({ theme }) => theme.plusShadowLight},
+        0 0 0 0.8rem #fff, 0 0.9rem 2rem ${({ theme }) => theme.plusShadowDark};
     `}
 
   ${({ isRoot }) =>

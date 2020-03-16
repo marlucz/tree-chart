@@ -1,21 +1,42 @@
 import React from 'react';
-import styled from 'styled-components';
-import Paragraph from 'components/atoms/Paragraph/Paragraph';
-import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
+import styled, { css } from 'styled-components';
+import ListItem from 'components/molecules/ListItems/ListItem';
 
 const StyledWrapper = styled.li`
+  position: relative;
   list-style-type: none;
+
+  &:before {
+    content: 'And';
+    position: absolute;
+    left: -5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: ${({ theme }) => theme.gray};
+    font-weight: ${({ theme }) => theme.light};
+  }
+`;
+
+const InnerWrapper = styled.div`
+  max-width: 33rem;
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 3rem;
+  padding: 1.5rem 3rem;
+  padding-right: 2rem;
   border-radius: 0.5rem;
   box-shadow: 0 0.4rem 1rem 0 ${({ theme }) => theme.primaryShadowLight};
   background-image: ${({ theme }) => theme.primaryGradient};
   background-repeat: no-repeat;
   background-size: 0.8rem 100%;
-  margin: 50px 0;
+  margin: 3rem 3rem;
+
+  ${({ expendable }) =>
+    expendable &&
+    css`
+      padding-right: 3.5rem;
+    `};
 
   &:before {
     content: '';
@@ -41,10 +62,11 @@ const StyledWrapper = styled.li`
   }
 `;
 
-const MainListItem = () => (
+const MainListItem = ({ name, expendable }) => (
   <StyledWrapper>
-    <Paragraph>Element</Paragraph>
-    <ButtonIcon minus />
+    <InnerWrapper>
+      <ListItem name={name} expendable={expendable} />
+    </InnerWrapper>
   </StyledWrapper>
 );
 
