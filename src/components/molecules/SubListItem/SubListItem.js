@@ -1,16 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import Item from 'components/molecules/Item/Item';
-import SubList from 'components/organisms/SubList/SubList';
 
 const StyledWrapper = styled.li`
   position: relative;
   list-style-type: none;
 
   &:before {
-    content: 'And';
+    content: 'Or';
     position: absolute;
-    left: -5rem;
+    left: -4rem;
     top: 50%;
     transform: translateY(-50%);
     color: ${({ theme }) => theme.gray};
@@ -19,17 +18,10 @@ const StyledWrapper = styled.li`
 `;
 
 const InnerWrapper = styled.div`
-  width: 100%;
-  max-width: 35rem;
   position: relative;
-  padding: 1.5rem 3rem;
-  padding-right: 2rem;
   border-radius: 0.5rem;
-  box-shadow: 0 0.4rem 1rem 0 ${({ theme }) => theme.primaryShadowLight};
-  background-image: ${({ theme }) => theme.primaryGradient};
-  background-repeat: no-repeat;
-  background-size: 0.8rem 100%;
-  margin: 3rem 3rem;
+  margin: 2rem 2.5rem;
+  margin-right: 0;
 
   &:before {
     content: '';
@@ -55,18 +47,12 @@ const InnerWrapper = styled.div`
   }
 `;
 
-const ListItem = ({ name, expendable, subList }) => (
+const SubListItem = ({ name }) => (
   <StyledWrapper>
-    {expendable ? (
-      <InnerWrapper withChildren>
-        <SubList subList={subList} name={name} expendable={expendable} />
-      </InnerWrapper>
-    ) : (
-      <InnerWrapper>
-        <Item name={name} expendable={expendable} />
-      </InnerWrapper>
-    )}
+    <InnerWrapper>
+      <Item subItem name={name} key={name} />
+    </InnerWrapper>
   </StyledWrapper>
 );
 
-export default ListItem;
+export default SubListItem;

@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 const Element = styled.p`
   width: 100%;
-  max-width: 22rem;
+  max-width: 25rem;
   padding: 1rem 0;
   margin: 0;
   font-weight: ${({ theme }) => theme.bold};

@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyle from 'GlobalStyle/GlobalStyle';
 import { variables } from 'GlobalStyle/variables';
 
-import List from 'components/organisms/List/List';
+import Widget from 'components/organisms/Widget/Widget';
 
 class Root extends React.Component {
   state = {
@@ -31,7 +31,7 @@ class Root extends React.Component {
       <div>
         <ThemeProvider theme={variables}>
           <GlobalStyle />
-          <List list={list} />
+          <Widget list={list} />
         </ThemeProvider>
       </div>
     );

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Item from 'components/molecules/Item/Item';
-import ListItem from 'components/molecules/ListItem/ListItem';
+import SubListItem from 'components/molecules/SubListItem/SubListItem';
 import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
 
 const StyledWrapper = styled.ul`
@@ -11,11 +11,11 @@ const StyledWrapper = styled.ul`
 `;
 
 const InnerWrapper = styled.div`
-  margin-left: 5rem;
+  margin-left: 4rem;
 `;
 
 const AdjustedButtonIcon = styled(ButtonIcon)`
-  margin-left: 7rem;
+  margin-left: 2rem;
 `;
 
 const SubList = ({ subList, name, expendable }) => (
@@ -24,7 +24,7 @@ const SubList = ({ subList, name, expendable }) => (
       <Item name={name} expendable={expendable} />
       <InnerWrapper>
         {subList.map(el => (
-          <Item subItem name={el.name} key={el.name} />
+          <SubListItem name={el.name} />
         ))}
       </InnerWrapper>
       <AdjustedButtonIcon medium />
