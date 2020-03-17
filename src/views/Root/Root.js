@@ -9,11 +9,19 @@ import List from 'components/organisms/List/List';
 class Root extends React.Component {
   state = {
     list: [
-      { name: 'Element 1' },
-      { name: 'Element 2' },
-      { name: 'Element 3' },
-      { name: 'Element 4' },
-      { name: 'Element 5' },
+      { name: 'Element 1', expendable: false },
+      {
+        name: 'Element 2',
+        expendable: true,
+        subList: [{ name: 'Sublisted Name 1' }, { name: 'Sublisted Name 2' }],
+      },
+      { name: 'Element 3', expendable: false },
+      {
+        name: 'Element 4',
+        expendable: true,
+        subList: [{ name: 'Sublisted Name 2' }, { name: 'Sublisted Name 1' }],
+      },
+      { name: 'Element 5', expendable: false },
     ],
   };
 

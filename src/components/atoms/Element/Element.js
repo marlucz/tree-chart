@@ -1,8 +1,9 @@
 import styled, { css } from 'styled-components';
 
 const Element = styled.p`
-  width: 22rem;
-  padding: 0.8rem 0;
+  width: 100%;
+  max-width: 22rem;
+  padding: 1rem 0;
   margin: 0;
   font-weight: ${({ theme }) => theme.bold};
   font-size: 1.5rem;
@@ -14,7 +15,6 @@ const Element = styled.p`
     withBorder &&
     css`
       padding-left: 2rem;
-      padding-right: 1rem;
       border: 1px solid ${({ theme }) => theme.gray};
       border-radius: 5px;
     `}

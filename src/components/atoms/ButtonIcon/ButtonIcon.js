@@ -4,6 +4,8 @@ import plusIcon from 'assets/icons/plus.svg';
 
 const ButtonIcon = styled.button`
   position: relative;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
@@ -37,6 +39,13 @@ const ButtonIcon = styled.button`
       background: ${({ theme }) => theme.minusGradient};
       box-shadow: 0 0.5rem 1rem ${({ theme }) => theme.minusShadowDark};
     `}
+
+    ${({ medium }) =>
+      medium &&
+      css`
+        width: 3rem;
+        height: 3rem;
+      `}
 
   ${({ big }) =>
     big &&

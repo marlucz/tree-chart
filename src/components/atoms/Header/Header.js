@@ -17,6 +17,7 @@ const Header = styled.div`
   letter-spacing: 0.6px;
   transition: background-position 0.7s;
   cursor: pointer;
+  z-index: 10;
 
   &::before {
     position: absolute;

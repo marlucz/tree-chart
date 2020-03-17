@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import MainListItem from 'components/molecules/ListItems/MainListItem';
+import ListItem from 'components/molecules/ListItems/ListItem';
 import Header from 'components/atoms/Header/Header';
 import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
 
@@ -17,8 +17,13 @@ const List = ({ list }) => (
   <>
     <Header>People</Header>
     <StyledWrapper>
-      {list.map(el => (
-        <MainListItem name={el.name} key={el.name} />
+      {list.map(({ name, expendable, subList }) => (
+        <ListItem
+          key={name}
+          name={name}
+          expendable={expendable}
+          subList={subList}
+        />
       ))}
     </StyledWrapper>
     <AdjustedButtonIcon big />

@@ -1,6 +1,7 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
-import ListItem from 'components/molecules/ListItems/ListItem';
+import styled from 'styled-components';
+import Item from 'components/molecules/Item/Item';
+import SubList from 'components/organisms/SubList/SubList';
 
 const StyledWrapper = styled.li`
   position: relative;
@@ -20,9 +21,6 @@ const StyledWrapper = styled.li`
 const InnerWrapper = styled.div`
   max-width: 33rem;
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 1.5rem 3rem;
   padding-right: 2rem;
   border-radius: 0.5rem;
@@ -31,12 +29,6 @@ const InnerWrapper = styled.div`
   background-repeat: no-repeat;
   background-size: 0.8rem 100%;
   margin: 3rem 3rem;
-
-  ${({ expendable }) =>
-    expendable &&
-    css`
-      padding-right: 3.5rem;
-    `};
 
   &:before {
     content: '';
@@ -62,12 +54,18 @@ const InnerWrapper = styled.div`
   }
 `;
 
-const MainListItem = ({ name, expendable }) => (
+const ListItem = ({ name, expendable, subList }) => (
   <StyledWrapper>
-    <InnerWrapper>
-      <ListItem name={name} expendable={expendable} />
-    </InnerWrapper>
+    {expendable ? (
+      <InnerWrapper withChildren>
+        <SubList subList={subList} name={name} expendable={expendable} />
+      </InnerWrapper>
+    ) : (
+      <InnerWrapper>
+        <Item name={name} expendable={expendable} />
+      </InnerWrapper>
+    )}
   </StyledWrapper>
 );
 
-export default MainListItem;
+export default ListItem;
