@@ -19,7 +19,7 @@ class Root extends React.Component {
       {
         name: 'Element 4',
         expendable: true,
-        subList: [{ name: 'Sublisted Name 2' }, { name: 'Sublisted Name 1' }],
+        subList: [],
       },
       { name: 'Element 5', expendable: false },
     ],

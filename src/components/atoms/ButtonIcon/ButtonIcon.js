@@ -59,15 +59,22 @@ const ButtonIcon = styled.button`
   ${({ isRoot }) =>
     isRoot &&
     css`
-      &::before {
+      &:before {
         content: '';
         position: absolute;
-        bottom: 100%;
+        ${({ big }) =>
+          big
+            ? css`
+                bottom: 110%;
+              `
+            : css`
+                bottom: 100%;
+              `}
         left: 50%;
-        transform: translateX(-50%);
-        width: 0.1rem;
+        border-left: 1px solid #ccc;
+        border-radius: 0 0 0 0px;
+        width: 100%;
         height: 2rem;
-        background-color: ${({ theme }) => theme.gray};
       }
     `}
 `;

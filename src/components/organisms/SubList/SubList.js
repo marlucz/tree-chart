@@ -16,6 +16,7 @@ const InnerWrapper = styled.div`
 
 const AdjustedButtonIcon = styled(ButtonIcon)`
   margin-left: 2rem;
+  margin-top: 2rem;
 `;
 
 const SubList = ({ subList, name, expendable }) => (
@@ -24,10 +25,10 @@ const SubList = ({ subList, name, expendable }) => (
       <Item name={name} expendable={expendable} />
       <InnerWrapper>
         {subList.map(el => (
-          <SubListItem name={el.name} />
+          <SubListItem name={el.name} key={el.name} />
         ))}
       </InnerWrapper>
-      <AdjustedButtonIcon medium />
+      <AdjustedButtonIcon medium isRoot />
     </StyledWrapper>
   </>
 );
