@@ -12,9 +12,9 @@ const List = ({ list }) => (
     {list.map(({ name, expendable, subList }) => (
       <ListItem
         key={name}
+        subList={subList}
         name={name}
         expendable={expendable}
-        subList={subList}
       />
     ))}
   </StyledWrapper>

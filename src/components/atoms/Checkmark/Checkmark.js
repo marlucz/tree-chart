@@ -40,9 +40,9 @@ const StyledInput = styled.input`
   }
 `;
 
-const Checkmark = () => (
+const Checkmark = ({ changeFn }) => (
   <StyledLabel>
-    <StyledInput type="checkbox" />
+    <StyledInput type="checkbox" onChange={changeFn} />
     <StyledCheckmark />
     Expendable ?
   </StyledLabel>

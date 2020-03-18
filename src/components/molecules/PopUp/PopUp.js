@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
+
+import { ListContext } from 'context/ListContext';
 
 import Input from 'components/atoms/Input/Input';
 import Checkmark from 'components/atoms/Checkmark/Checkmark';
@@ -34,14 +36,52 @@ const Form = styled.form`
   background-color: #fff;
 `;
 
-const PopUp = () => (
-  <StyledWrapper>
-    <Form>
-      <Input type="text" name="element" placeholder="Add element" required />
-      <Checkmark />
-      <ButtonIcon />
-    </Form>
-  </StyledWrapper>
-);
+const StyledButton = styled(ButtonIcon)`
+  margin-top: 1rem;
+`;
+
+const PopUp = ({ forMainElement }) => {
+  const { handlePopUpVisibility, handleAddElement } = useContext(ListContext);
+
+  const [expendable, setElementExpendable] = useState(false);
+  const [elementName, setElementName] = useState('');
+
+  const handleFormSubmit = e => {
+    e.preventDefault();
+
+    const newElement = {
+      name: elementName,
+      expendable,
+      subList: [],
+    };
+
+    handleAddElement(newElement);
+    handlePopUpVisibility();
+  };
+
+  const handleInputChange = e => {
+    setElementName(e.target.value);
+  };
+
+  const handleCheckMarkChange = () => {
+    setElementExpendable(!expendable);
+  };
+
+  return (
+    <StyledWrapper>
+      <Form onSubmit={e => handleFormSubmit(e)}>
+        <Input
+          type="text"
+          name="element"
+          placeholder="Add element"
+          required
+          onChange={handleInputChange}
+        />
+        {forMainElement && <Checkmark changeFn={handleCheckMarkChange} />}
+        <StyledButton />
+      </Form>
+    </StyledWrapper>
+  );
+};
 
 export default PopUp;

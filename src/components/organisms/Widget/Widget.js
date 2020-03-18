@@ -18,9 +18,9 @@ const Widget = () => {
   return (
     <>
       <Header>People</Header>
-      {list ? <List list={list} /> : ''}
+      {list && <List list={list} />}
       <AdjustedButtonIcon big isRoot onClick={handlePopUpVisibility} />
-      {popUpVisible ? <PopUp /> : ''}
+      {popUpVisible && <PopUp forMainElement />}
     </>
   );
 };
