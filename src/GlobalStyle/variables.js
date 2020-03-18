@@ -26,6 +26,7 @@ export const variables = {
 
   black: '#4b597b',
   gray: '#b7bdca',
+  lightGreen: '#8af3a0',
 
   light: 400,
   bold: 900,
