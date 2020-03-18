@@ -34,9 +34,9 @@ const Form = styled.form`
   background-color: #fff;
 `;
 
-const PopUp = ({ closePopUp }) => (
+const PopUp = () => (
   <StyledWrapper>
-    <Form onSubmit={closePopUp}>
+    <Form>
       <Input type="text" name="element" placeholder="Add element" required />
       <Checkmark />
       <ButtonIcon />
