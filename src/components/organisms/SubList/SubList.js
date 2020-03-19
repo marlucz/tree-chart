@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import Item from 'components/molecules/Item/Item';
 import SubListItem from 'components/molecules/SubListItem/SubListItem';
@@ -43,6 +44,12 @@ const SubList = ({ name, expendable, subList }) => {
       </StyledWrapper>
     </>
   );
+};
+
+Item.propTypes = {
+  name: PropTypes.string.isRequired,
+  expendable: PropTypes.bool.isRequired,
+  subItem: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired,
 };
 
 export default SubList;

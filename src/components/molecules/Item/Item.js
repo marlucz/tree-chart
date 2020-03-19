@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
 
 import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
 import Element from 'components/atoms/Element/Element';
@@ -45,6 +46,19 @@ const Item = ({ name, expendable, subItem, parentName }) => {
       <ButtonIcon minus onClick={handleClick} />
     </StyledItem>
   );
+};
+
+Item.propTypes = {
+  name: PropTypes.string.isRequired,
+  expendable: PropTypes.bool,
+  subItem: PropTypes.bool,
+  parentName: PropTypes.string,
+};
+
+Item.defaultProps = {
+  expendable: false,
+  subItem: false,
+  parentName: null,
 };
 
 export default Item;

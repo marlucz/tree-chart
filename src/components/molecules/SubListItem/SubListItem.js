@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import styled from 'styled-components';
 import Item from 'components/molecules/Item/Item';
 
@@ -54,5 +56,10 @@ const SubListItem = ({ name, parentName }) => (
     </InnerWrapper>
   </StyledWrapper>
 );
+
+Item.propTypes = {
+  name: PropTypes.string.isRequired,
+  parentName: PropTypes.string.isRequired,
+};
 
 export default SubListItem;

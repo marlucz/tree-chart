@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StyledLabel = styled.label`
   display: flex;
@@ -47,5 +48,9 @@ const Checkmark = ({ changeFn }) => (
     Expendable ?
   </StyledLabel>
 );
+
+Checkmark.propTypes = {
+  changeFn: PropTypes.func.isRequired,
+};
 
 export default Checkmark;

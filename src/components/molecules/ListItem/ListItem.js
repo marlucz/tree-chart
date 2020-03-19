@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
 import Item from 'components/molecules/Item/Item';
 import SubList from 'components/organisms/SubList/SubList';
 
@@ -69,6 +71,17 @@ const ListItem = ({ name, expendable, subList }) => {
       )}
     </StyledWrapper>
   );
+};
+
+Item.propTypes = {
+  name: PropTypes.string.isRequired,
+  expendable: PropTypes.bool,
+  subList: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+};
+
+Item.defaultProps = {
+  expendable: false,
+  subList: [],
 };
 
 export default ListItem;
