@@ -15,6 +15,28 @@ const ListProvider = ({ children }) => {
     updateList(list.concat(element));
   };
 
+  const isInSubList = (name, parentName) => {
+    const listCopy = [...list];
+    const indexElement = listCopy.findIndex(
+      item => item.name.toLowerCase() === parentName.toLowerCase(),
+    );
+
+    const existingElement = listCopy[indexElement].subList.find(
+      subItem => subItem.name.toLowerCase() === name.toLowerCase(),
+    );
+
+    return existingElement;
+  };
+
+  const isInList = name => {
+    const listCopy = [...list];
+    const existingItem = listCopy.find(
+      item => item.name.toLowerCase() === name.toLowerCase(),
+    );
+
+    return existingItem;
+  };
+
   const handleAddSubElement = childrenElement => {
     updateList(list => {
       const listCopy = [...list];
@@ -55,6 +77,8 @@ const ListProvider = ({ children }) => {
         list,
         popUpVisible,
         mainElement,
+        isInList,
+        isInSubList,
         setMainElement,
         handleRemoveMainItem,
         handleRemoveSubItem,

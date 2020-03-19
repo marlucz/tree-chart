@@ -42,6 +42,8 @@ const StyledButton = styled(ButtonIcon)`
 
 const PopUp = () => {
   const {
+    isInList,
+    isInSubList,
     mainElement,
     handlePopUpVisibility,
     handleAddMainElement,
@@ -55,6 +57,11 @@ const PopUp = () => {
     e.preventDefault();
 
     if (mainElement) {
+      if (isInSubList(elementName, mainElement)) {
+        window.alert('Element already on the list');
+        return;
+      }
+
       const newElement = {
         name: elementName,
       };
@@ -62,6 +69,11 @@ const PopUp = () => {
       handleAddSubElement(newElement);
       handlePopUpVisibility();
     } else {
+      if (isInList(elementName)) {
+        window.alert('Element already on the list');
+        return;
+      }
+
       const newElement = {
         name: elementName,
         expendable,
