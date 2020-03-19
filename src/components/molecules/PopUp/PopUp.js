@@ -13,7 +13,6 @@ const StyledWrapper = styled.div`
   left: 0;
   background-color: rgba(183, 189, 202, 0.8);
   width: 100%;
-  min-height: 100vh;
   height: 100%;
   display: flex;
   justify-content: center;

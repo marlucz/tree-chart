@@ -12,8 +12,8 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        margin: 5rem;
-        padding: 0;
+        margin: 0;
+        padding: 5rem;
         font-family: 'Montserrat', sans-serif;
         font-size: 1.6rem;
         font-weight: ${({ theme }) => theme.bold};
