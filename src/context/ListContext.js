@@ -31,8 +31,7 @@ const ListProvider = ({ children }) => {
     setMainElement('');
   };
 
-  const handleRemoveItem = e => {
-    const name = e.target.getAttribute('name');
+  const handleRemoveItem = name => {
     updateList(list.filter(item => item.name !== name));
   };
 

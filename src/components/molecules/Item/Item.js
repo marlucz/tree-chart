@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled, { css } from 'styled-components';
 
 import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
 import Element from 'components/atoms/Element/Element';
+
+import { ListContext } from 'context/ListContext';
 
 const StyledItem = styled.div`
   display: flex;
@@ -26,11 +28,19 @@ const StyledItem = styled.div`
     `}
 `;
 
-const Item = ({ name, expendable, subItem }) => (
-  <StyledItem subItem={subItem} expendable={expendable}>
-    <Element withBorder={expendable}>{name}</Element>
-    <ButtonIcon minus />
-  </StyledItem>
-);
+const Item = ({ name, expendable, subItem }) => {
+  const { handleRemoveItem } = useContext(ListContext);
+
+  const handleClick = () => {
+    handleRemoveItem(name);
+  };
+
+  return (
+    <StyledItem subItem={subItem} expendable={expendable}>
+      <Element withBorder={expendable}>{name}</Element>
+      <ButtonIcon minus onClick={handleClick} />
+    </StyledItem>
+  );
+};
 
 export default Item;
