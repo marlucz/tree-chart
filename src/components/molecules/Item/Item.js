@@ -28,11 +28,15 @@ const StyledItem = styled.div`
     `}
 `;
 
-const Item = ({ name, expendable, subItem }) => {
-  const { handleRemoveItem } = useContext(ListContext);
+const Item = ({ name, expendable, subItem, parentName }) => {
+  const { handleRemoveMainItem, handleRemoveSubItem } = useContext(ListContext);
 
   const handleClick = () => {
-    handleRemoveItem(name);
+    if (parentName) {
+      handleRemoveSubItem(name, parentName);
+    } else {
+      handleRemoveMainItem(name);
+    }
   };
 
   return (

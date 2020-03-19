@@ -47,10 +47,10 @@ const InnerWrapper = styled.div`
   }
 `;
 
-const SubListItem = ({ name }) => (
+const SubListItem = ({ name, parentName }) => (
   <StyledWrapper>
     <InnerWrapper>
-      <Item subItem name={name} key={name} />
+      <Item subItem name={name} key={name} parentName={parentName} />
     </InnerWrapper>
   </StyledWrapper>
 );

@@ -36,7 +36,7 @@ const SubList = ({ name, expendable, subList }) => {
         <Item name={name} expendable={expendable} />
         <InnerWrapper>
           {subList.map(el => (
-            <SubListItem name={el.name} key={el.name} />
+            <SubListItem name={el.name} key={el.name} parentName={name} />
           ))}
         </InnerWrapper>
         <AdjustedButtonIcon medium isRoot onClick={handleClick} />

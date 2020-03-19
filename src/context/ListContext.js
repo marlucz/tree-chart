@@ -31,8 +31,22 @@ const ListProvider = ({ children }) => {
     setMainElement('');
   };
 
-  const handleRemoveItem = name => {
+  const handleRemoveMainItem = name => {
     updateList(list.filter(item => item.name !== name));
+  };
+
+  const handleRemoveSubItem = (name, parentName) => {
+    updateList(list => {
+      const listCopy = [...list];
+      const indexOfName = listCopy.findIndex(item => item.name === parentName);
+
+      listCopy[indexOfName] = {
+        ...listCopy[indexOfName],
+        subList: list[indexOfName].subList.filter(item => item.name !== name),
+      };
+
+      return listCopy;
+    });
   };
 
   return (
@@ -42,7 +56,8 @@ const ListProvider = ({ children }) => {
         popUpVisible,
         mainElement,
         setMainElement,
-        handleRemoveItem,
+        handleRemoveMainItem,
+        handleRemoveSubItem,
         handleAddMainElement,
         handleAddSubElement,
         handlePopUpVisibility,
