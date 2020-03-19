@@ -40,33 +40,35 @@ const InnerWrapper = styled.div`
     border-bottom: 1px solid #ccc;
     border-radius: 0 0 0 0px;
     width: 3rem;
-    height: 100%;
+    height: calc(50% + 3rem);
   }
 
   &:after {
     position: absolute;
     content: '';
-    bottom: -50%;
+    top: 50%;
     left: -3rem;
     border-left: 1px solid #ccc;
     border-radius: 0px 0 0 0;
     width: 3rem;
-    height: 100%;
+    height: calc(50% + 3rem);
   }
 `;
 
-const ListItem = ({ name, expendable, subList }) => (
-  <StyledWrapper>
-    {expendable ? (
-      <InnerWrapper withChildren>
-        <SubList subList={subList} name={name} expendable={expendable} />
-      </InnerWrapper>
-    ) : (
-      <InnerWrapper>
-        <Item name={name} expendable={expendable} />
-      </InnerWrapper>
-    )}
-  </StyledWrapper>
-);
+const ListItem = ({ name, expendable, subList }) => {
+  return (
+    <StyledWrapper>
+      {expendable ? (
+        <InnerWrapper withChildren>
+          <SubList name={name} expendable={expendable} subList={subList} />
+        </InnerWrapper>
+      ) : (
+        <InnerWrapper>
+          <Item name={name} />
+        </InnerWrapper>
+      )}
+    </StyledWrapper>
+  );
+};
 
 export default ListItem;

@@ -40,8 +40,13 @@ const StyledButton = styled(ButtonIcon)`
   margin-top: 1rem;
 `;
 
-const PopUp = ({ forMainElement }) => {
-  const { handlePopUpVisibility, handleAddElement } = useContext(ListContext);
+const PopUp = () => {
+  const {
+    mainElement,
+    handlePopUpVisibility,
+    handleAddMainElement,
+    handleAddSubElement,
+  } = useContext(ListContext);
 
   const [expendable, setElementExpendable] = useState(false);
   const [elementName, setElementName] = useState('');
@@ -49,14 +54,23 @@ const PopUp = ({ forMainElement }) => {
   const handleFormSubmit = e => {
     e.preventDefault();
 
-    const newElement = {
-      name: elementName,
-      expendable,
-      subList: [],
-    };
+    if (mainElement) {
+      const newElement = {
+        name: elementName,
+      };
 
-    handleAddElement(newElement);
-    handlePopUpVisibility();
+      handleAddSubElement(newElement);
+      handlePopUpVisibility();
+    } else {
+      const newElement = {
+        name: elementName,
+        expendable,
+        subList: [],
+      };
+
+      handleAddMainElement(newElement);
+      handlePopUpVisibility();
+    }
   };
 
   const handleInputChange = e => {
@@ -77,7 +91,7 @@ const PopUp = ({ forMainElement }) => {
           required
           onChange={handleInputChange}
         />
-        {forMainElement && <Checkmark changeFn={handleCheckMarkChange} />}
+        {!mainElement && <Checkmark changeFn={handleCheckMarkChange} />}
         <StyledButton />
       </Form>
     </StyledWrapper>

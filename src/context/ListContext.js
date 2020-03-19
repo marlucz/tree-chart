@@ -4,14 +4,31 @@ export const ListContext = React.createContext();
 
 const ListProvider = ({ children }) => {
   const [list, updateList] = useState([]);
+  const [mainElement, setMainElement] = useState('');
   const [popUpVisible, setPopUpVisible] = useState(false);
 
   const handlePopUpVisibility = () => {
     setPopUpVisible(!popUpVisible);
   };
 
-  const handleAddElement = element => {
+  const handleAddMainElement = element => {
     updateList(list.concat(element));
+  };
+
+  const handleAddSubElement = childrenElement => {
+    updateList(list => {
+      const listCopy = [...list];
+      const indexOfName = listCopy.findIndex(item => item.name === mainElement);
+
+      listCopy[indexOfName] = {
+        ...listCopy[indexOfName],
+        subList: [...list[indexOfName].subList, childrenElement],
+      };
+
+      return listCopy;
+    });
+
+    setMainElement('');
   };
 
   const handleRemoveItem = e => {
@@ -24,8 +41,11 @@ const ListProvider = ({ children }) => {
       value={{
         list,
         popUpVisible,
+        mainElement,
+        setMainElement,
         handleRemoveItem,
-        handleAddElement,
+        handleAddMainElement,
+        handleAddSubElement,
         handlePopUpVisibility,
       }}
     >
