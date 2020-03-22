@@ -1,8 +1,7 @@
 import styled, { css } from 'styled-components';
-import minusIcon from 'assets/icons/minus.svg';
-import plusIcon from 'assets/icons/plus.svg';
 
 const ButtonIcon = styled.button`
+  display: block;
   position: relative;
   min-width: 2.5rem;
   min-height: 2.5rem;
