@@ -13,7 +13,7 @@ const Header = styled.div`
   color: #fff;
   text-shadow: 0.2rem 0.2rem 0.9rem ${({ theme }) => theme.black};
   font-weight: ${({ theme }) => theme.bold};
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   letter-spacing: 0.6px;
   transition: background-position 0.7s;
   cursor: pointer;

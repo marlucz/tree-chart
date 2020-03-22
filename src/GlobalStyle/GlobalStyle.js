@@ -14,8 +14,8 @@ const GlobalStyle = createGlobalStyle`
     body {
         margin: 0;
         padding: 5rem;
-        font-family: 'Montserrat', sans-serif;
         font-size: 1.6rem;
+        font-family: 'Josefin Sans';
         font-weight: ${({ theme }) => theme.bold};
         color: ${({ theme }) => theme.black};
         line-height: 1.2;

@@ -6,7 +6,7 @@ const Element = styled.p`
   padding: 1rem 0;
   margin: 0;
   font-weight: ${({ theme }) => theme.bold};
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   text-transform: capitalize;
   letter-spacing: 0.2px;
   color: ${({ theme }) => theme.black};

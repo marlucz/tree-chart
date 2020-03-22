@@ -8,7 +8,7 @@ import Checkmark from 'components/atoms/Checkmark/Checkmark';
 import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
 
 const StyledWrapper = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background-color: rgba(183, 189, 202, 0.8);
@@ -17,7 +17,6 @@ const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
   z-index: 100;
 `;
 
