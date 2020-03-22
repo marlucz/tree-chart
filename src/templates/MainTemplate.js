@@ -1,23 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { ThemeProvider } from 'styled-components';
 import { variables } from 'GlobalStyle/variables';
 import GlobalStyle from 'GlobalStyle/GlobalStyle';
-import ListProvider from 'context/ListContext';
 
-import Widget from 'components/organisms/Widget/Widget';
-
-const Root = () => {
+const MainTemplate = ({ children }) => {
   return (
     <div>
       <ThemeProvider theme={variables}>
         <GlobalStyle />
-        <ListProvider>
-          <Widget />
-        </ListProvider>
+        {children}
       </ThemeProvider>
     </div>
   );
 };
 
-export default Root;
+MainTemplate.propTypes = {
+  children: PropTypes.element.isRequired,
+};
+
+export default MainTemplate;

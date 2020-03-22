@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import List from 'components/organisms/List/List';
@@ -12,17 +13,21 @@ const AdjustedButtonIcon = styled(ButtonIcon)`
   margin-left: 8.5rem;
 `;
 
-const Widget = () => {
+const Widget = ({ header }) => {
   const { list, popUpVisible, handlePopUpVisibility } = useContext(ListContext);
 
   return (
     <>
-      <Header>People</Header>
+      <Header>{header}</Header>
       {list && <List />}
       <AdjustedButtonIcon big isRoot onClick={handlePopUpVisibility} />
       {popUpVisible && <PopUp />}
     </>
   );
+};
+
+Widget.propTypes = {
+  header: PropTypes.string.isRequired,
 };
 
 export default Widget;
