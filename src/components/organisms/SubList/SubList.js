@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+import plusIcon from 'assets/icons/plus.svg';
 import Item from 'components/molecules/Item/Item';
 import SubListItem from 'components/molecules/SubListItem/SubListItem';
 import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
@@ -40,7 +41,12 @@ const SubList = ({ name, expendable, subList }) => {
             <SubListItem name={el.name} key={el.name} parentName={name} />
           ))}
         </InnerWrapper>
-        <AdjustedButtonIcon medium isRoot onClick={handleClick} />
+        <AdjustedButtonIcon
+          medium
+          isRoot
+          icon={plusIcon}
+          onClick={handleClick}
+        />
       </StyledWrapper>
     </>
   );

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { ListContext } from 'context/ListContext';
 
+import plusIcon from 'assets/icons/plus.svg';
 import Input from 'components/atoms/Input/Input';
 import Checkmark from 'components/atoms/Checkmark/Checkmark';
 import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
@@ -103,7 +104,7 @@ const PopUp = () => {
           onChange={handleInputChange}
         />
         {!mainElement && <Checkmark changeFn={handleCheckMarkChange} />}
-        <StyledButton />
+        <StyledButton icon={plusIcon} />
       </Form>
     </StyledWrapper>
   );

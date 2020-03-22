@@ -17,7 +17,7 @@ const ButtonIcon = styled.button`
   &:after {
     display: block;
     content: '';
-    background-image: url(${({ minus }) => (minus ? minusIcon : plusIcon)});
+    background-image: url(${({ icon }) => icon});
     background-repeat: no-repeat;
     background-position: 50% 50%;
     ${({ big }) =>
@@ -33,8 +33,8 @@ const ButtonIcon = styled.button`
     text-shadow: 0px 0.1rem 0.2rem ${({ theme }) => theme.plusShadowDark};
   }
 
-  ${({ minus }) =>
-    minus &&
+  ${({ red }) =>
+    red &&
     css`
       background: ${({ theme }) => theme.minusGradient};
       box-shadow: 0 0.5rem 1rem ${({ theme }) => theme.minusShadowDark};

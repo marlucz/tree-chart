@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import plusIcon from 'assets/icons/plus.svg';
 import List from 'components/organisms/List/List';
 import Header from 'components/atoms/Header/Header';
 import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
@@ -20,7 +21,12 @@ const Widget = ({ header }) => {
     <>
       <Header>{header}</Header>
       {list && <List />}
-      <AdjustedButtonIcon big isRoot onClick={handlePopUpVisibility} />
+      <AdjustedButtonIcon
+        icon={plusIcon}
+        big
+        isRoot
+        onClick={handlePopUpVisibility}
+      />
       {popUpVisible && <PopUp />}
     </>
   );

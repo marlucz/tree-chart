@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
+import minusIcon from 'assets/icons/minus.svg';
 
 import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
 import Element from 'components/atoms/Element/Element';
@@ -43,7 +44,7 @@ const Item = ({ name, expendable, subItem, parentName }) => {
   return (
     <StyledItem subItem={subItem} expendable={expendable}>
       <Element withBorder={expendable}>{name}</Element>
-      <ButtonIcon minus onClick={handleClick} />
+      <ButtonIcon icon={minusIcon} red onClick={handleClick} />
     </StyledItem>
   );
 };
