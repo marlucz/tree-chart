@@ -9,12 +9,17 @@ import tasksIcon from 'assets/icons/tasks.svg';
 
 const StyledWrapper = styled.nav`
   margin-bottom: 3rem;
-  display: flex;
 `;
 
 const StyledButtonLink = styled.li`
-  display: flex;
   flex-direction: column;
+`;
+
+const StyledList = styled.ul`
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 `;
 
 const StyledElement = styled(Element)`
@@ -24,14 +29,28 @@ const StyledElement = styled(Element)`
 
 const Navbar = () => (
   <StyledWrapper>
-    <StyledButtonLink>
-      <ButtonIcon as={NavLink} to="/" big="true" icon={teamsIcon} />
-      <StyledElement>Teams</StyledElement>
-    </StyledButtonLink>
-    <StyledButtonLink>
-      <ButtonIcon as={NavLink} to="/tasks" big="true" icon={tasksIcon} />
-      <StyledElement>Tasks</StyledElement>
-    </StyledButtonLink>
+    <StyledList>
+      <StyledButtonLink>
+        <ButtonIcon
+          as={NavLink}
+          to="/teams"
+          big="true"
+          icon={teamsIcon}
+          activeclass="active"
+        />
+        <StyledElement>Teams</StyledElement>
+      </StyledButtonLink>
+      <StyledButtonLink>
+        <ButtonIcon
+          as={NavLink}
+          to="/tasks"
+          big="true"
+          icon={tasksIcon}
+          activeclass="active"
+        />
+        <StyledElement>Tasks</StyledElement>
+      </StyledButtonLink>
+    </StyledList>
   </StyledWrapper>
 );
 

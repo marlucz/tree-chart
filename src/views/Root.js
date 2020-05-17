@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import Tasks from 'views/Tasks';
 import Teams from 'views/Teams';
@@ -12,7 +12,8 @@ const Root = () => {
       <BrowserRouter>
         <Navbar />
         <Switch>
-          <Route exact path="/" component={Teams} />
+          <Route exact path="/" render={() => <Redirect to="/teams" />} />
+          <Route path="/teams" component={Teams} />
           <Route path="/tasks" component={Tasks} />
         </Switch>
       </BrowserRouter>

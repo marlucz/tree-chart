@@ -32,6 +32,10 @@ const ButtonIcon = styled.button`
     text-shadow: 0px 0.1rem 0.2rem ${({ theme }) => theme.plusShadowDark};
   }
 
+  &.active {
+    z-index: 10;
+  }
+
   ${({ red }) =>
     red &&
     css`

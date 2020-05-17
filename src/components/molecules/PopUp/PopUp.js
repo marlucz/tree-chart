@@ -22,6 +22,7 @@ const StyledWrapper = styled.div`
 `;
 
 const Form = styled.form`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -38,6 +39,13 @@ const Form = styled.form`
 
 const StyledButton = styled(ButtonIcon)`
   margin-top: 1rem;
+`;
+
+const StyledCloseButton = styled(ButtonIcon)`
+  position: absolute;
+  top: -3rem;
+  right: 1rem;
+  transform: rotate(45deg);
 `;
 
 const PopUp = () => {
@@ -85,6 +93,10 @@ const PopUp = () => {
     }
   };
 
+  const handleClosePopup = () => {
+    handlePopUpVisibility();
+  };
+
   const handleInputChange = e => {
     setElementName(e.target.value);
   };
@@ -96,6 +108,7 @@ const PopUp = () => {
   return (
     <StyledWrapper>
       <Form onSubmit={e => handleFormSubmit(e)}>
+        <StyledCloseButton red icon={plusIcon} onClick={handleClosePopup} />
         <Input
           type="text"
           name="element"
